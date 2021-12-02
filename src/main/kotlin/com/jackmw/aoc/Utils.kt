@@ -1,3 +1,5 @@
+package com.jackmw.aoc
+
 class Utils {
   companion object {
     fun readFileAsLines(fileName: String): List<String> {

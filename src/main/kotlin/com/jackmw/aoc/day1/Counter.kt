@@ -1,7 +1,9 @@
-import Utils.Companion.readFileAsLines
+package com.jackmw.aoc.day1
 
-class WindowCounter : LineWorker<Int, Int>() {
-  fun countWithWindow(inputs: List<Int>, windowSize: Int): Int {
+import com.jackmw.aoc.LineWorker
+
+class Counter : LineWorker<Int, Int>() {
+  private fun countWithWindow(inputs: List<Int>, windowSize: Int): Int {
     if (inputs.size < (windowSize + 1)) {
       return 0
     }

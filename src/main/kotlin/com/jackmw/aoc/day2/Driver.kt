@@ -1,3 +1,7 @@
+package com.jackmw.aoc.day2
+
+import com.jackmw.aoc.LineWorker
+
 class Driver : LineWorker<Driver.Instruction, Pair<Int, Int>>() {
   data class Instruction(
     val forward: Int = 0,

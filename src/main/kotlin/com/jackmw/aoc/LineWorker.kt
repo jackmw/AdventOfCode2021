@@ -1,3 +1,5 @@
+package com.jackmw.aoc
+
 abstract class LineWorker<T, R> {
   private fun getInputs(fileName: String): List<T> {
     return Utils.readFileAsLines(fileName).mapNotNull { parseLine(it) }

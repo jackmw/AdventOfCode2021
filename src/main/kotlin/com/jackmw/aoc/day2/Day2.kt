@@ -1,3 +1,7 @@
+package com.jackmw.aoc
+
+import com.jackmw.aoc.day2.Driver
+
 fun main(args: Array<String>) {
   part1("day2/part1-test.txt")
   part1("day2/part1-input.txt")

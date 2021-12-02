@@ -8,7 +8,6 @@ fun main(args: Array<String>) {
 
 private fun part1(fileName: String) {
   println("$fileName -> ${ WindowCounter().part1(fileName)}")
-  println("$fileName -> ${ WindowCounter().part2(fileName, 1)}")
 }
 
 private fun part2(fileName: String) {

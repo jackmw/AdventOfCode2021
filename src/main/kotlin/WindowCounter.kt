@@ -1,20 +1,7 @@
 import Utils.Companion.readFileAsLines
 
-class WindowCounter() {
-  fun part1(fileName: String): Int {
-    return countPart1(readFileAsLines(fileName).mapNotNull { it.toIntOrNull() })
-  }
-
-  fun part2(fileName: String, windowSize: Int = 3): Int {
-    return countWithWindow(readFileAsLines(fileName), windowSize)
-  }
-
-  private fun countPart1(inputs: List<Int>): Int {
-    return inputs.zipWithNext { a, b -> b > a }.count { it }
-  }
-
-  private fun countWithWindow(lines: List<String>, windowSize: Int): Int {
-    val inputs = lines.mapNotNull { it.toIntOrNull() }
+class WindowCounter : LineWorker<Int, Int>() {
+  fun countWithWindow(inputs: List<Int>, windowSize: Int): Int {
     if (inputs.size < (windowSize + 1)) {
       return 0
     }
@@ -27,5 +14,17 @@ class WindowCounter() {
       windows.add(sum)
     }
     return windows.zipWithNext{ a, b -> b > a }.count { it }
+  }
+
+  override fun parseLine(line: String): Int? {
+    return line.toIntOrNull()
+  }
+
+  override fun part1(inputs: List<Int>): Int {
+    return inputs.zipWithNext { a, b -> b > a }.count { it }
+  }
+
+  override fun part2(inputs: List<Int>): Int {
+    return countWithWindow(inputs, 3)
   }
 }

@@ -7,11 +7,11 @@ fun main(args: Array<String>) {
 }
 
 private fun part1(fileName: String) {
-  val (horizontal, vertical) = Driver().driveByFile(fileName)
+  val (horizontal, vertical) = Driver().part1(fileName)
   println("$fileName -> ($horizontal, $vertical) = ${horizontal * vertical}")
 }
 
 private fun part2(fileName: String) {
-  val (horizontal, vertical) = Driver().driveByFilePart2(fileName)
+  val (horizontal, vertical) = Driver().part2(fileName)
   println("$fileName -> ($horizontal, $vertical) = ${horizontal * vertical}")
 }

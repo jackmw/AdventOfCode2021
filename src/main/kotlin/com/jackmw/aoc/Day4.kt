@@ -1,6 +1,7 @@
 package com.jackmw.aoc
 
 import com.jackmw.aoc.Utils.Companion.readFileAsLines
+import kotlin.properties.Delegates
 
 fun main(args: Array<String>) {
   part1("/day4/part1-test.txt")
@@ -36,17 +37,16 @@ private class BingoBoard() {
   private val numbersMap: MutableMap<Int, Pair<Int, Int>> = mutableMapOf()
   private val markedNumbers: MutableSet<Int> = mutableSetOf()
   private val unmarkedNumbers: MutableSet<Int> = mutableSetOf()
-  private val marks: Array<BooleanArray> = arrayOf(
-    BooleanArray(5), BooleanArray(5), BooleanArray(5),BooleanArray(5),BooleanArray(5),
-  )
+  private var boardSize by Delegates.notNull<Int>()
 
-  constructor(numbers: List<List<Int>>) : this() {
-    assert(numbers.size == 5)
-    for( i in 0 until 5) {
-      assert(numbers[i].size == 5)
+  constructor(numbers: List<List<Int>>, boardSize:Int = 5) : this() {
+    this.boardSize = boardSize
+    assert(numbers.size == boardSize)
+    for( i in 0 until boardSize) {
+      assert(numbers[i].size == boardSize)
     }
-    for (row in 0 until 5) {
-      for (column in 0 until 5) {
+    for (row in 0 until boardSize) {
+      for (column in 0 until boardSize) {
         val number = numbers[row][column]
         numbersMap[number] = row to column
         unmarkedNumbers.add(number)
@@ -55,31 +55,25 @@ private class BingoBoard() {
   }
 
   fun markNumber(number: Int): Boolean {
-    val position = numbersMap[number] ?: return false
+    numbersMap[number] ?: return false
     unmarkedNumbers.remove(number)
     markedNumbers.add(number)
-    marks[position.first][position.second] = true
     return true
   }
 
   fun wins(): Pair<Int?, Int?>? {
-    if (markedNumbers.size < 5) {
+    if (markedNumbers.size < boardSize) {
       return null
     }
-    for (row in 0 until 5) {
-      var rowWins = true
-      for (column in 0 until 5) {
-        rowWins = rowWins && marks[row][column]
-      }
+    val markedPositions = markedNumbers.map { numbersMap[it]!! }
+    for (row in 0 until boardSize) {
+      val rowWins = markedPositions.filter { it.first == row }.size == boardSize
       if (rowWins) {
         return row to null
       }
     }
-    for (column in 0 until 5) {
-      var columnWins = true
-      for (row in 0 until 5) {
-        columnWins = columnWins && marks[row][column]
-      }
+    for (column in 0 until boardSize) {
+      val columnWins =  markedPositions.filter { it.second == column }.size == boardSize
       if (columnWins) {
         return null to column
       }
@@ -89,18 +83,6 @@ private class BingoBoard() {
 
   fun sumOfUnmarked() : Int {
     return unmarkedNumbers.sum()
-  }
-
-  fun getRowSum(row: Int): Int {
-    return numbersMap.filter { it.value.first == row }
-    .map { it.key }
-    .sum()
-  }
-
-  fun getColumnSum(column: Int): Int {
-    return numbersMap.filter { it.value.second == column }
-      .map { it.key }
-      .sum()
   }
 }
 
@@ -114,12 +96,21 @@ private data class BingoGame(
         val marked = board.markNumber(calledNumber)
         if (marked) {
           val wins = board.wins() ?: return@forEachIndexed
-          println("Board $index wins: $wins")
+          println("Board $index wins: ${winToString(wins)}")
           return board.sumOfUnmarked() to calledNumber
         }
       }
     }
     return null
+  }
+
+  private fun winToString(win: Pair<Int?, Int?>?): String? {
+    return when {
+      win == null -> null
+      win.first != null -> "row ${win.first}"
+      win.second != null -> "column ${win.second}"
+      else -> ""
+    }
   }
 
   fun findLastWinningBoard(): Pair<Int, Int>? {
@@ -137,12 +128,12 @@ private data class BingoGame(
         }
       }
     }
-    println("Board ${winningBoardIndices.last()} wins: $lastWin")
+    println("Board ${winningBoardIndices.last()} wins: ${winToString(lastWin)}")
     return lastWin
   }
 
   companion object {
-    fun parse(lines: List<String>): BingoGame {
+    fun parse(lines: List<String>, boardSize: Int = 5): BingoGame {
       var numbers: List<Int>? = null
       val pendingBoardLines: MutableList<List<Int>> = mutableListOf()
       val boards: MutableList<BingoBoard> = mutableListOf()
@@ -155,9 +146,9 @@ private data class BingoGame(
           numbers = pieces.mapNotNull { it.toIntOrNull() }
         }
         val boardLine = line.trim().split(' ').mapNotNull { it.toIntOrNull() }
-        if (boardLine.size == 5) {
+        if (boardLine.size == boardSize) {
           pendingBoardLines.add(boardLine)
-          if (pendingBoardLines.size == 5) {
+          if (pendingBoardLines.size == boardSize) {
             boards.add(BingoBoard(pendingBoardLines))
             pendingBoardLines.clear()
           }

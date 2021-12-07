@@ -9,7 +9,7 @@ fun main(args: Array<String>) {
   val start = System.nanoTime()
   part2("/day6/part1-input.txt")
   val duration = System.nanoTime() - start
-  println("duration $duration ns ${TimeUnit.NANOSECONDS.toMillis(duration)} ms")
+  println("duration ${duration}ns ${TimeUnit.NANOSECONDS.toMillis(duration)}ms")
 }
 
 private fun part1(fileName: String) {

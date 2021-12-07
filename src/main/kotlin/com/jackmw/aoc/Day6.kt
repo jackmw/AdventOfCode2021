@@ -1,11 +1,15 @@
 package com.jackmw.aoc
 
 import com.jackmw.aoc.Utils.Companion.readFileAsLines
+import java.util.concurrent.TimeUnit
 
 fun main(args: Array<String>) {
   part1("/day6/part1-test.txt")
   part2("/day6/part1-test.txt")
+  val start = System.nanoTime()
   part2("/day6/part1-input.txt")
+  val duration = System.nanoTime() - start
+  println("duration $duration ns ${TimeUnit.NANOSECONDS.toMillis(duration)} ms")
 }
 
 private fun part1(fileName: String) {

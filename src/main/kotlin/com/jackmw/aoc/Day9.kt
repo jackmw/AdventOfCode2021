@@ -21,10 +21,9 @@ private fun part1(fileName: String) {
 private fun part2(fileName: String) {
   val lavaMap = LavaMap.parse(readFileAsLines(fileName))
   val basins = lavaMap.findBasins()
-  val top3BasinSizes = basins.map {
-    it.size
-  }.sortedDescending()
-    .subList(0, 3)
+  val top3BasinSizes = basins.asSequence()
+    .map { it.size }.sortedDescending()
+    .take(3)
   println(top3BasinSizes)
   val product = top3BasinSizes.reduce { acc, size -> acc * size }
   println("$fileName top3 basin-size product $product")

@@ -21,7 +21,7 @@ fun main() {
   }
 
   part1("/day22/part1-test.txt")
-  // part1("/day22/part1-input.txt")
+  // part1("/day22/part1-negate.txt")
 }
 
 data class Point3D(

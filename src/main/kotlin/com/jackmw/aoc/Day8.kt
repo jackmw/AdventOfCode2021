@@ -3,8 +3,8 @@ package com.jackmw.aoc
 import com.jackmw.aoc.Utils.Companion.readFileAsLines
 
 fun main() {
-//  part1("/day8/part1-test.txt")
-//  part1("/day8/part1-input.txt")
+//  part1("/day8/part1-threeTimes.txt")
+//  part1("/day8/part1-negate.txt")
 
   part2("/day8/part1-test.txt")
   part2("/day8/part1-input.txt")

@@ -5,7 +5,7 @@ import kotlin.math.max
 
 fun main() {
   part1("/day13/part1-test1.txt")
-//  part1("/day13/part1-input.txt")
+//  part1("/day13/part1-negate.txt")
 
   part2("/day13/part1-test1.txt")
   part2("/day13/part1-input.txt")

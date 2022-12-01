@@ -1,4 +1,4 @@
-package com.jackmw.aoc
+package com.jackmw.aoc2021
 
 class Utils {
   companion object {

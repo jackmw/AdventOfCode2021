@@ -1,4 +1,4 @@
-package com.jackmw.aoc
+package com.jackmw.aoc2021
 
 fun main() {
   part1(Target(xRange = IntRange(20, 30), yRange = IntRange(-10, -5)))

@@ -1,4 +1,4 @@
-package com.jackmw.aoc
+package com.jackmw.aoc2021
 
 abstract class LineWorker<T, R> {
   private fun getInputs(fileName: String): List<T> {

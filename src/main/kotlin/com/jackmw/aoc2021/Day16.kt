@@ -1,7 +1,6 @@
-package com.jackmw.aoc
+package com.jackmw.aoc2021
 
-import com.jackmw.aoc.Utils.Companion.readFileAsLines
-import java.util.PriorityQueue
+import com.jackmw.aoc2021.Utils.Companion.readFileAsLines
 
 fun main() {
   println(Bits.parsePacket("D2FE28"))

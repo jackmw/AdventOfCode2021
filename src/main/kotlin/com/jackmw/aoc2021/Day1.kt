@@ -1,4 +1,4 @@
-package com.jackmw.aoc
+package com.jackmw.aoc2021
 
 fun main(args: Array<String>) {
   part1("/day1/part1-test.txt")

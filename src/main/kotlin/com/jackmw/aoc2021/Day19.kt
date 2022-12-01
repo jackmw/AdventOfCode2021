@@ -1,6 +1,4 @@
-package com.jackmw.aoc
-
-import com.jackmw.aoc.Utils.Companion.readFileAsLines
+package com.jackmw.aoc2021
 
 fun main() {
 }

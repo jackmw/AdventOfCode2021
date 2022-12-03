@@ -3,11 +3,11 @@ package com.jackmw.aoc2022
 import com.jackmw.aoc2021.Utils
 
 fun main(args: Array<String>) {
-  part1("/2022.day2/part1-test.txt")
-  part1("/2022.day2/part1-input.txt" )
+  part1("/2022/day2/part1-test.txt")
+  part1("/2022/day2/part1-input.txt" )
 
-  part2("/2022.day2/part1-test.txt")
-  part2("/2022.day2/part1-input.txt" )
+  part2("/2022/day2/part1-test.txt")
+  part2("/2022/day2/part1-input.txt" )
 }
 
 private fun part1(fileName: String) {

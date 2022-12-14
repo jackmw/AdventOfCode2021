@@ -1,6 +1,6 @@
 package com.jackmw.aoc2021
 
-import com.jackmw.aoc2021.Utils.Companion.readFileAsLines
+import com.jackmw.Utils.Companion.readFileAsLines
 
 fun main() {
   part1("/day10/part1-test.txt")

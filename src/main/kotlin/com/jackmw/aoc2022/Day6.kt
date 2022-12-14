@@ -1,7 +1,6 @@
 package com.jackmw.aoc2022
 
-import com.jackmw.aoc2021.Utils
-import java.util.Stack
+import com.jackmw.Utils
 
 fun main(args: Array<String>) {
   part1("/2022/day6/part1-test.txt")

@@ -1,6 +1,6 @@
 package com.jackmw.aoc2021
 
-import com.jackmw.aoc2021.Utils.Companion.readFileAsLines
+import com.jackmw.Utils.Companion.readFileAsLines
 
 fun main() {
   println(Bits.parsePacket("D2FE28"))

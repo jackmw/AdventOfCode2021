@@ -1,5 +1,7 @@
 package com.jackmw.aoc2021
 
+import com.jackmw.LineWorker
+
 fun main(args: Array<String>) {
   part1("/day3/part1-test.txt")
   part1("/day3/part1-input.txt")

@@ -1,6 +1,6 @@
 package com.jackmw.aoc2022
 
-import com.jackmw.aoc2021.Utils
+import com.jackmw.Utils
 import kotlin.math.absoluteValue
 
 fun main(args: Array<String>) {

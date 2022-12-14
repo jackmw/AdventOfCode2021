@@ -1,6 +1,6 @@
 package com.jackmw.aoc2021
 
-import com.jackmw.aoc2021.Utils.Companion.readFileAsLines
+import com.jackmw.Utils.Companion.readFileAsLines
 
 fun main() {
   val negate = AluProgram.parse("/day24/part1-negate.txt")

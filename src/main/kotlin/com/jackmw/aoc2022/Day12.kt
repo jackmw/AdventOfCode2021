@@ -117,13 +117,13 @@ class Day12 {
     return null
   }
 
-  data class Coordinate(
+  internal data class Coordinate(
     val row: Int,
     val column: Int,
   ) {
   }
 
-  data class Cell(
+  internal data class Cell(
     val coord: Coordinate,
     val height: Char,
   ) {
@@ -134,7 +134,7 @@ class Day12 {
     }
   }
 
-  data class GameMap(
+  internal data class GameMap(
     private val map: Map<Coordinate, Cell>,
     val start: Cell,
     val end: Cell,
@@ -207,7 +207,7 @@ class Day12 {
     }
   }
 
-  data class Path(
+  internal data class Path(
     val cells: MutableList<Cell> = mutableListOf(),
     private val coords: MutableSet<Coordinate> = mutableSetOf(),
     private val chars: MutableMap<Coordinate, Char> = mutableMapOf(),

@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.7.21"
     application
 }
 
@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    implementation("com.github.shiguruikai:combinatoricskt:1.6.0")
     testImplementation(kotlin("test"))
 }
 

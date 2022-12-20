@@ -31,6 +31,7 @@ internal class Day19 {
         activeRobots.compute(newRobot) { _, existingCount -> 1 + (existingCount ?: 0) }
       }
     }
+    return 0
   }
 
   private fun harvestResources(
@@ -41,6 +42,7 @@ internal class Day19 {
   }
 
   private fun buildRobots(costs: Map<Day19.Resource, Day19.RobotCost>): Resource? {
+    return null
   }
 
   internal fun part2(fileName: String) {
